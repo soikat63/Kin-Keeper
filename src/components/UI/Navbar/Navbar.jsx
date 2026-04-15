@@ -2,66 +2,110 @@ import { useState } from "react";
 import { RxCross1 } from "react-icons/rx";
 import { CgMenu } from "react-icons/cg";
 import Navlogo from "../../../assets/NavLogo.png";
+import { GrHomeRounded } from "react-icons/gr";
+import { FaRegClock } from "react-icons/fa";
+import { PiChartLine } from "react-icons/pi";
+import { NavLink } from "react-router";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const links = ["Products", "Features", "Pricing", "Testimonials", "FAQ"];
+  const links = [
+    {
+      name: "Home",
+      path: "/",
+      icon: <GrHomeRounded />,
+    },
+    {
+      name: "Timeline",
+      path: "/timeline",
+      icon: <FaRegClock />,
+    },
+    {
+      name: "Stats",
+      path: "/stats",
+      icon: <PiChartLine />,
+    },
+  ];
 
-    return (
-      <div className=" bg-base-100 shadow-md px-4 md:px-10 sticky top-0 z-50">
-        <div className="container mx-auto navbar ">
-          {/* LEFT - LOGO */}
-          <div className="flex-1">
+  return (
+    <div className="bg-base-100 shadow-md sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* LOGO */}
+          <div>
             <a href="/" className="flex items-center">
               <img
                 src={Navlogo}
                 alt="logo"
-                className="w-[120px] md:w-[160px]"
+                className="w-[120px] md:w-[150px]"
               />
             </a>
           </div>
 
-          {/* RIGHT - DESKTOP MENU */}
-          <div className="hidden md:flex gap-6">
-            {links.map((link) => (
-              <a
-                key={link}
-                href={`#${link.toLowerCase()}`}
-                className="font-semibold hover:text-primary"
+          {/* DESKTOP MENU */}
+          <div className="hidden md:flex items-center gap-4">
+            {links.map((item) => (
+              <NavLink
+                to={item.path}
+                key={item.name}
+                className={({ isActive }) =>
+                  `flex items-center gap-2 px-5 py-2 rounded-lg transition-all duration-200
+              ${
+                isActive
+                  ? "bg-[#2D5B4A] text-white"
+                  : "text-gray-500 hover:text-black"
+              }`
+                }
               >
-                {link}
-              </a>
+                <span className="text-lg">{item.icon}</span>
+                <span className="font-medium">{item.name}</span>
+              </NavLink>
             ))}
           </div>
 
           {/* MOBILE BUTTON */}
-          <div className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}>
-            {menuOpen ? (
-              <RxCross1 className="w-6 h-6" />
-            ) : (
-              <CgMenu className="w-6 h-6" />
-            )}
+          <div className="md:hidden">
+            <button onClick={() => setMenuOpen(!menuOpen)}>
+              {menuOpen ? (
+                <RxCross1 className="w-6 h-6" />
+              ) : (
+                <CgMenu className="w-6 h-6" />
+              )}
+            </button>
           </div>
-
-          {/* MOBILE MENU */}
-          {menuOpen && (
-            <div className="absolute top-16 left-0 w-full bg-white shadow-lg flex flex-col p-4 gap-3 md:hidden">
-              {links.map((link) => (
-                <a
-                  key={link}
-                  href={`#${link.toLowerCase()}`}
-                  onClick={() => setMenuOpen(false)}
-                  className="py-2 border-b"
-                >
-                  {link}
-                </a>
-              ))}
-            </div>
-          )}
         </div>
       </div>
-    );
+
+      {/* MOBILE MENU */}
+      <div
+        className={`md:hidden transition-all duration-300 overflow-hidden ${
+          menuOpen ? "max-h-96" : "max-h-0"
+        }`}
+      >
+        <div className="bg-white px-4 pb-4 shadow-md flex flex-col gap-2">
+          {links.map((item) => (
+            <NavLink
+              to={item.path}
+              key={item.name}
+              onClick={() => setMenuOpen(false)}
+              className={({ isActive }) =>
+                `flex items-center justify-center gap-2 px-4 py-3 rounded-lg
+            ${
+              isActive
+                ? "bg-[#2D5B4A] text-white"
+                : "text-gray-600 hover:bg-gray-100"
+            }`
+              }
+            >
+              {item.icon}
+              {item.name}
+            </NavLink>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Navbar;
