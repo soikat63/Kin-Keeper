@@ -1,9 +1,30 @@
 import React from 'react'
 import { LuPlus } from 'react-icons/lu';
+import { useApp } from '../../../context/AppContext';
+
+
+function StatCard({ value, label }) {
+
+
+  return (
+    <div className="flex-1 bg-white border border-gray-100 rounded-xl p-5 text-center shadow-sm">
+      <div className="text-3xl font-bold text-[#244D3F]">{value}</div>
+      <div className="text-xs text-gray-400 mt-1">{label}</div>
+    </div>
+  );
+}
+
 
 const Hero = () => {
+  const { friends } = useApp()
 
-    // const { stats } = useFriends();
+  // --- Compute stats from live friends data ---
+  const total = friends.length;
+  const onTrack = friends.filter((f) => f.status === "on-track").length;
+  const needAttn = friends.filter((f) => f.status !== "on-track").length;
+  const interactions = 12; 
+
+  // const { stats } = useFriends();
   return (
     <section className="text-center py-20 container mx-auto">
       {/* -- Main headline -- */}
@@ -23,16 +44,13 @@ const Hero = () => {
         Add a Friend
       </button>
 
-      {/* -- Summary stat cards row -- */}
-      {/* <div className="flex gap-3 justify-center flex-wrap">
-            <StatCard value={stats.totalFriends} label="Total Friends" />
-            <StatCard value={stats.onTrack} label="On Track" />
-            <StatCard value={stats.needAttention} label="Need Attention" />
-            <StatCard
-              value={stats.interactionsThisMonth}
-              label="Interactions This Month"
-            />
-          </div> */}
+      {/* --- 4 summary stat cards --- */}
+      <div className="flex flex-col sm:flex-row gap-4 mt-10 max-w-3xl mx-auto">
+        <StatCard value={total} label="Total Friends" />
+        <StatCard value={onTrack} label="On Track" />
+        <StatCard value={needAttn} label="Need Attention" />
+        <StatCard value={interactions} label="Interactions This Month" />
+      </div>
     </section>
   );
 }
