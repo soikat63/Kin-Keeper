@@ -7,7 +7,7 @@ import { FaChevronDown } from 'react-icons/fa';
 
 
 
-// --- Icon + color config per interaction type ---
+//  Icon + color 
 const TYPE_CONFIG = {
   Call: { icon: LuPhoneCall, bg: "bg-gray-100", text: "text-gray-600" },
   Text: { icon: FiMessageSquare, bg: "bg-gray-100", text: "text-gray-600" },
@@ -19,24 +19,24 @@ const TYPE_CONFIG = {
   },
 };
 
-// --- Single timeline entry row ---
+// Single timeline entry row 
 function TimelineEntry({ entry }) {
   const cfg  = TYPE_CONFIG[entry.type] || TYPE_CONFIG['Call']
   const Icon = cfg.icon
 
-  // --- Format date: "March 29, 2026" ---
+  // Format date: 
   const date = new Date(entry.date).toLocaleDateString('en-US', {
     month: 'long', day: 'numeric', year: 'numeric',
   })
 
   return (
     <div className="flex items-center gap-4 py-3.5 border-b border-gray-100 last:border-0">
-      {/* --- Interaction type icon --- */}
+      {/* Interaction type icon */}
       <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${cfg.bg}`}>
         <Icon size={14} className={cfg.text} />
       </div>
 
-      {/* --- Title and date --- */}
+      {/*Title and date */}
       <div>
         <p className="text-sm text-gray-800">
           <span className="font-semibold">{entry.type}</span>{' '}
@@ -52,21 +52,21 @@ const TimeLine = () => {
 
   const { timeline } = useApp();
 
-  // --- Filter state for Challenge C2 ---
+  // Filter state 
   const [filter, setFilter] = useState("All");
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const FILTERS = ["All", "Call", "Text", "Video", "Meetup"];
 
-  // --- Apply filter ---
+  //Apply filter
   const filtered =
     filter === "All" ? timeline : timeline.filter((e) => e.type === filter);
   return (
     <div className="max-w-6xl mx-auto px-6 py-8">
-      {/* --- Page heading (Figma: large bold "Timeline") --- */}
+      {/* Page heading */}
       <h1 className="text-2xl font-bold text-gray-900 mb-6">Timeline</h1>
 
-      {/* --- Filter dropdown (Challenge C2) --- */}
+      {/*Filter dropdown*/}
       <div className="relative mb-6 w-44">
         <button
           onClick={() => setDropdownOpen((o) => !o)}
@@ -103,7 +103,7 @@ const TimeLine = () => {
         )}
       </div>
 
-      {/* --- Timeline entries list --- */}
+      {/*  Timeline entries list */}
       <div className="bg-white border border-gray-100 rounded-xl px-5 py-1">
         {filtered.length > 0 ? (
           filtered.map((entry) => (

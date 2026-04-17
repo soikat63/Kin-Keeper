@@ -11,7 +11,7 @@ const FriendCard = ({ friend }) => {
       onClick={() => navigate(`/friend/${friend.id}`)}
       className="bg-white rounded-lg p-6 cursor-pointer shadow-md hover:-translate-y-0.5 transition-all duration-200 group flex flex-col items-center"
     >
-      {/* --- Profile picture --- */}
+      {/*Profile picture*/}
       <img
         src={friend.picture}
         alt={friend.name}

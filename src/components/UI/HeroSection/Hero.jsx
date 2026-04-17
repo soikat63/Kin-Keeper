@@ -18,33 +18,33 @@ function StatCard({ value, label }) {
 const Hero = () => {
   const { friends } = useApp()
 
-  // --- Compute stats from live friends data ---
+ 
   const total = friends.length;
   const onTrack = friends.filter((f) => f.status === "on-track").length;
   const needAttn = friends.filter((f) => f.status !== "on-track").length;
   const interactions = 12; 
 
-  // const { stats } = useFriends();
+  
   return (
     <section className="text-center py-20 container mx-auto">
-      {/* -- Main headline -- */}
+      {/* Main headline */}
       <h2 className="text-3xl md:text-5xl font-display font-bold text-[#1F2937] mb-4">
         Friends to keep close in your life
       </h2>
 
-      {/* -- Subtitle / description -- */}
+      {/*Subtitle */}
       <p className=" text-[#64748B] max-w-md mx-auto mb-5">
         Your personal shelf of meaningful connections. Browse, tend, and nurture
         the relationships that matter most.
       </p>
 
-      {/* -- Add friend CTA button -- */}
+      {/* button */}
       <button className="inline-flex items-center gap-2 bg-[#244D3F] text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity mb-8">
         <LuPlus size={16} />
         Add a Friend
       </button>
 
-      {/* --- 4 summary stat cards --- */}
+      {/*  4 summary stat cards */}
       <div className="max-w-6xl mx-auto px-4 md:px-6 flex flex-col sm:flex-row gap-6 mt-10">
         <StatCard value={total} label="Total Friends" />
         <StatCard value={onTrack} label="On Track" />

@@ -10,7 +10,7 @@ import { FiTrash2 } from "react-icons/fi";
 import { FaRegEdit } from "react-icons/fa";
 import { toast } from "react-toastify";
 
-//  store component, not JSX
+
 const CHECKIN_TYPES = [
   { type: "Call", icon: LuPhoneCall, label: "Call" },
   { type: "Text", icon: FaRegMessage, label: "Text" },

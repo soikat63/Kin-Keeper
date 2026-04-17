@@ -2,7 +2,7 @@ import React from 'react'
 
 
 const STYLES = {
-  overdue: "bg-[#EF4444] text-white",
+  "overdue": "bg-[#EF4444] text-white",
   "almost due": "bg-[#244D3F] text-white",
   "on-track": "bg-[#EFAD44] text-white",
 };

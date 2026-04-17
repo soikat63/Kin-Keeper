@@ -1,7 +1,3 @@
-// ============================================================
-// NotFound.jsx — 404 Page
-// Requirement 10.1: Show for any unknown/invalid route
-// ============================================================
 
 import { GrHomeRounded } from "react-icons/gr";
 import { useNavigate } from "react-router";

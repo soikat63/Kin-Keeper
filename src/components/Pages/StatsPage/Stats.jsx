@@ -10,10 +10,10 @@ import {
 } from "recharts";
 
 const COLORS = {
-  Text: "#7C3AED", // purple
-  Call: "#059669", // green
-  Video: "#2563EB", // blue
-  Meetup: "#F59E0B", // amber
+  Text: "#7C3AED",
+  Call: "#059669",
+  Video: "#2563EB", 
+  Meetup: "#F59E0B",
 };
 
 const Stats = () => {

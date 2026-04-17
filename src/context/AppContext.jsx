@@ -1,5 +1,4 @@
-// ============================================================
-// AppContext.jsx — Global State via Context API
+// Global Context API
 
 import { createContext, useContext, useState, useEffect } from "react";
 import friendsData from "../data/friends.json";
@@ -7,11 +6,11 @@ import friendsData from "../data/friends.json";
 const AppContext = createContext(null);
 
 export const AppProvider =({ children }) => {
-  // --- Friends state: loaded async to show loading spinner ---
+  // Friends state for loading spinner 
   const [friends, setFriends] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // --- Timeline state: pre-seeded with sample interactions ---
+  //  Timeline state with simple interactions
   const [timeline, setTimeline] = useState([
     {
       id: 1,
@@ -85,7 +84,7 @@ export const AppProvider =({ children }) => {
     },
   ]);
 
-  // --- Simulate async data fetch (shows loading spinner per Req 10.2) ---
+  
   useEffect(() => {
     const t = setTimeout(() => {
       setFriends(friendsData);
@@ -94,7 +93,7 @@ export const AppProvider =({ children }) => {
     return () => clearTimeout(t);
   }, []);
 
-  // --- Add new timeline entry when check-in button is clicked ---
+  // Add new timeline 
   const addTimelineEntry = (type, friendId, friendName) => {
     setTimeline((prev) => [
       {
@@ -117,7 +116,7 @@ export const AppProvider =({ children }) => {
   );
 }
 
-// --- Custom hook so any component can easily consume context ---
+// Custom hook 
 export function useApp() {
   return useContext(AppContext);
 }
