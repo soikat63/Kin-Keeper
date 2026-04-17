@@ -2,13 +2,13 @@ import React from 'react'
 
 
 const STYLES = {
-  overdue: "bg-red-100 text-red-600",
-  "almost due": "bg-yellow-100 text-yellow-700",
-  "on-track": "bg-green-100 text-green-700",
+  overdue: "bg-[#EF4444] text-white",
+  "almost due": "bg-[#244D3F] text-white",
+  "on-track": "bg-[#EFAD44] text-white",
 };
 
 const LABELS = {
-  overdue: "Overdue",
+  "overdue": "Overdue",
   "almost due": "Almost Due",
   "on-track": "On-Track",
 };
@@ -19,7 +19,7 @@ const StatusBadge = ( {status, className= ''}) => {
     const label = LABELS[status] || status;
   return (
     <span
-      className={`inline-block text-[11px] font-semibold px-2.5 py-0.5 rounded-full ${style} ${className}`}
+      className={`inline-block text-[12px] font-medium px-2 py-1.5 rounded-full ${style} ${className}`}
     >
       {label}
     </span>

@@ -7,9 +7,9 @@ function StatCard({ value, label }) {
 
 
   return (
-    <div className="flex-1 bg-white border border-gray-100 rounded-xl p-5 text-center shadow-sm">
+    <div className="flex flex-col flex-1 items-center justify-center bg-white border gap-2 border-gray-100 rounded-xl py-8 px-4 text-center shadow-sm">
       <div className="text-3xl font-bold text-[#244D3F]">{value}</div>
-      <div className="text-xs text-gray-400 mt-1">{label}</div>
+      <div className="text-lg  text-[#64748B] mt-2">{label}</div>
     </div>
   );
 }
@@ -45,7 +45,7 @@ const Hero = () => {
       </button>
 
       {/* --- 4 summary stat cards --- */}
-      <div className="flex flex-col sm:flex-row gap-4 mt-10 max-w-3xl mx-auto">
+      <div className="max-w-6xl mx-auto px-4 md:px-6 flex flex-col sm:flex-row gap-6 mt-10">
         <StatCard value={total} label="Total Friends" />
         <StatCard value={onTrack} label="On Track" />
         <StatCard value={needAttn} label="Need Attention" />

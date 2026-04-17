@@ -79,18 +79,18 @@ const Navbar = () => {
 
       {/* MOBILE MENU */}
       <div
-        className={`md:hidden transition-all duration-300 overflow-hidden ${
-          menuOpen ? "max-h-96" : "max-h-0"
+        className={`md:hidden absolute  w-full  transition-all duration-300 overflow-hidden ${
+          menuOpen ? "max-h-96 border-y " : "max-h-0 "
         }`}
       >
-        <div className="bg-white px-4 pb-4 shadow-md flex flex-col gap-2">
+        <div className="bg-white px-4 py-20 shadow-md flex flex-col gap-2 ">
           {links.map((item) => (
             <NavLink
               to={item.path}
               key={item.name}
               onClick={() => setMenuOpen(false)}
               className={({ isActive }) =>
-                `flex items-center justify-center gap-2 px-4 py-3 rounded-lg
+                `flex items-center justify-center gap-2 px-4 py-3 rounded-lg w-[50%] mx-auto
             ${
               isActive
                 ? "bg-[#2D5B4A] text-white"
@@ -109,3 +109,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

@@ -7,7 +7,7 @@ const Friends = () => {
   const { friends, loading } = useApp();
   return (
     <section className="max-w-6xl mx-auto px-6 py-8">
-      <h2 className="text-base font-semibold text-gray-700 mb-4">
+      <h2 className="text-2xl font-semibold text-[#1F2937] mb-4">
         Your Friends
       </h2>
 
@@ -16,7 +16,7 @@ const Friends = () => {
         <LoadingSpinner />
       ) : (
         /* --- 4-column responsive grid --- */
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {friends.map((friend) => (
             <FriendCard key={friend.id} friend={friend} />
           ))}
