@@ -120,6 +120,8 @@ src/data/friends.json
 Timeline data is stored in browser:
 
 ```
+localStorage
+```
 
 ---
 
