@@ -52,7 +52,6 @@ A polished relationship tracker built with React, where users can browse a curat
 | React Toastify |            Notifications            |
 |    Recharts    |          Data visualization         |
 |   Local JSON   |          Static friend data         |
-|  Local Storage |           Data persistence          |
 |     Vercel     |              Deployment             |
 
 ---
@@ -134,13 +133,13 @@ Deployed on Vercel:
 
 ## 👨‍💻 Author
 
-**Soikat Islam Nirob**
+**Soikat Islam Nirob**  
 Frontend Developer (React)
 
 ---
 
-<div align="center">
-
+<p align="center">
 ⭐ If you like this project, consider giving it a star!
+</p>
 
 </div>
