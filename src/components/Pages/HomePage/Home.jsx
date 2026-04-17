@@ -1,6 +1,6 @@
 import React from 'react'
 import Hero from '../../UI/HeroSection/Hero'
-import Friends from '../../UI/FriendsSection/friends'
+import Friends from '../../UI/FriendsSection/Friends'
 
 const Home = () => {
   return (
